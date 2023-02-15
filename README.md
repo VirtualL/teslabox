@@ -20,7 +20,7 @@ TeslaBox is also capable to run [TeslaMate.](https://github.com/adriankumpf/tesl
 
 ## Installation
 For paid (priority) support please contact teslabox@payymail.com
-
+### This "fork" made to test Linode Object Storage VS AWS S3
 ### AWS (required for archiving)
 1. Sign into your AWS account
 2. Create a new S3 bucket:
@@ -164,7 +164,7 @@ For paid (priority) support please contact teslabox@payymail.com
    ```
    cd /root
    mkdir -p /root/teslabox
-   curl -o main.zip https://codeload.github.com/mluggy/teslabox/zip/refs/heads/main
+   curl -o main.zip https://codeload.github.com/VirtualL/teslabox/zip/refs/heads/main
    unzip -o main.zip
    cp -r teslabox-main/* teslabox
    rm -rf teslabox-main
@@ -186,10 +186,11 @@ For paid (priority) support please contact teslabox@payymail.com
   Environment="NODE_ENV=production"
 
   # To enable archive and/or email, enter these
-  Environment="AWS_ACCESS_KEY_ID="
-  Environment="AWS_SECRET_ACCESS_KEY="
-  Environment="AWS_DEFAULT_REGION="
-  Environment="AWS_S3_BUCKET="
+  Environment="LINODE_ACCESS_KEY_ID="
+  Environment="LINODE_SECRET_ACCESS_KEY="
+  Environment="LINODE_DEFAULT_REGION="
+  Environment="LINODE_S3_BUCKET="
+  Environment="LINODE_S3_ENDPOINT="
 
   # To enable telegram notification, enter this
   Environment="TELEGRAM_ACCESS_TOKEN="
