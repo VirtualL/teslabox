@@ -169,7 +169,8 @@ For paid (priority) support please contact teslabox@payymail.com
    cp -r teslabox-main/* teslabox
    rm -rf teslabox-main
    cd teslabox
-   npm install
+   npm install --production
+   npm prune
    ```
 16. Finalize the TeslaBox service:
   - First, create the service file:
@@ -318,8 +319,10 @@ For paid (priority) support please contact teslabox@payymail.com
 - Quality (the higher you set this, the more space each clip would take. Default: Medium)
 - Duration (the longer you set this, the more time and space each clip would take. Default: 45)
 - Create sentry clips (uploads and notifies of sentry events. Default: Enabled)
+- Cinematic mode (create a single, moving angle view based on simple motion detection. Default: Disabled)
 - Quality (the higher you set this, the more space each clip would take. Default: High)
 - Duration (the longer you set this, the more time and space each clip would take. Default: 30)
+- Ignore angles (do not upload or notify of sentry events from these angles. Note this will reset to default on every run. Default: none)
 - Stream (enables streaming. Default: Disabled)
 - Copy streams (uploads streams to remote location. Default: Disabled)
 - Quality (the higher you set this, the more space each clip would take. Default: High)

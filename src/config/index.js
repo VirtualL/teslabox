@@ -12,8 +12,10 @@ const settings = {
   dashcamQuality: 'medium',
   dashcamDuration: 45,
   sentry: true,
+  sentryCinematic: false,
   sentryQuality: 'high',
   sentryDuration: 30,
+  sentryIgnoreAngles: [],
   stream: false,
   streamCopy: false,
   streamQuality: 'high',
@@ -34,6 +36,8 @@ exports.start = (cb) => {
     }
   })
 
+  set('sentryIgnoreAngles', settings.sentryIgnoreAngles)
+
   cb()
 }
 exports.get = (key) => {
@@ -50,7 +54,8 @@ const set = (key, value) => {
     case 'emailRecipients':
     case 'telegramRecipients':
     case 'streamAngles':
-      value = _.compact(_.isArray(value) ? value : _.split(value.toLowerCase(), /[\r\n, ]+/))
+    case 'sentryIgnoreAngles':
+      value = _.compact(_.isArray(value) ? value : _.split((value || '').toLowerCase(), /[\r\n, ]+/))
       if (!value.length) {
         value = settings[key]
       }
@@ -68,6 +73,7 @@ const set = (key, value) => {
 
     case 'dashcam':
     case 'sentry':
+    case 'sentryCinematic':
     case 'stream':
     case 'streamCopy':
       value = !!value
